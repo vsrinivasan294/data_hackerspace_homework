@@ -67,7 +67,13 @@ def single_type_candy_count(filename):
 ###### -- Do this later too
 
 def reflections_and_projections(points):
-    pass
+    
+    arrYOne = np.matmul(points,[[1, 0], [0, -1]]) 
+    arrPi = np.matmul(arrYOne, [[0, -1], [1, 0]])
+    arrLine = np.matmul(arrPi, [[1, 3], [3, 9]])
+    arrLine = arrLine*.1
+    
+    return arrLine
 
 ####### -- Wtf is this unholy piece of code above ^^
 
