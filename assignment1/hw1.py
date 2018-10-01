@@ -91,8 +91,22 @@ def single_type_candy_count(filename):
 def reflections_and_projections(points):
     pass
 
+####### -- Wtf is this unholy piece of code above ^^
+
+
 def normalize(image):
-    pass
+    maximum = image.max()
+    minimum = image.min()
+    
+    for x in range(len(image)):
+        for y in range(len(image[0])):
+            p = image[x,y]
+            image[x,y] = (float(p - minimum) * 255.0)/float(maximum-minimum)
+    
+    return image
+
+
+##### Extracredit LMAO 
 
 def sigmoid_normalize(image): #Extra credit
     pass
