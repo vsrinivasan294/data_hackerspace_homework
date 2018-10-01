@@ -9,6 +9,7 @@ import json
 import csv
 import numpy as np
 import pandas as pd
+import math
 
 def histogram_times(filename):
 
@@ -40,9 +41,6 @@ def histogram_times(filename):
         out.append(flight_data3[x])
    
     return out
-
-
-
 
 def weigh_pokemons(filename, weight):
   
@@ -85,8 +83,13 @@ def normalize(image):
     
     return image
 
+def sigmoid_normalize(image, a):
+    
+    for x in range(len(image)):
+        for y in range(len(image[0])):
+            p = image[x,y]
+            image[x,y] = 255 * ((255 * (1 + math.exp( (p-128) * ((-a) ** (-1)) )))**(-1)) 
+    return image
 
-##### Extracredit LMAO 
 
-def sigmoid_normalize(image): #Extra credit
-    pass
+
